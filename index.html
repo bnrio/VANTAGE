@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Private Risk Governance | Advisory</title>
+		<script src="https://cdn.tailwindcss.com"></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+			rel="stylesheet"
+		/>
+
+		<script>
+			tailwind.config = {
+				theme: {
+					extend: {
+						colors: {
+							charcoal: "#0a0a0a",
+							"off-white": "#f5f5f5",
+							stone: "#a8a29e",
+							"luxury-gold": "#d4af37",
+						},
+						fontFamily: {
+							sans: ["Inter", "sans-serif"],
+							serif: ["Playfair Display", "serif"],
+						},
+						letterSpacing: {
+							"widest-xl": ".25em",
+						},
+					},
+				},
+			};
+		</script>
+		<style>
+			/* Custom Utilities for that "Expensive" Feel */
+			body {
+				background-color: #050505;
+				color: #e5e5e5;
+			}
+
+			.fade-up {
+				opacity: 0;
+				transform: translateY(30px);
+				transition:
+					opacity 1.2s ease-out,
+					transform 1.2s ease-out;
+			}
+
+			.fade-up.visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
+
+			/* Subtle grain texture overlay for filmic look */
+			.noise-overlay {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				pointer-events: none;
+				z-index: 50;
+				opacity: 0.03;
+				background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+			}
+
+			/* Custom selection color */
+			::selection {
+				background: rgba(212, 175, 55, 0.3);
+				color: white;
+			}
+		</style>
+	</head>
+	<body class="antialiased overflow-x-hidden">
+		<!-- Noise Texture for Texture/Depth -->
+		<div class="noise-overlay"></div>
+
+		<!-- Navigation: Extremely Minimal -->
+		<nav
+			class="fixed w-full z-40 top-0 left-0 py-8 px-6 md:px-12 mix-blend-difference text-white transition-all duration-700"
+			id="navbar"
+		>
+			<div class="max-w-7xl mx-auto flex justify-between items-center">
+				<div
+					class="uppercase tracking-widest-xl text-xs md:text-sm font-semibold border-b border-transparent hover:border-white/50 transition-all duration-500 cursor-default"
+				>
+					VANTAGE / GOVERNANCE
+				</div>
+				<div
+					class="hidden md:flex space-x-12 text-xs tracking-widest font-light"
+				>
+					<a
+						href="#philosophy"
+						class="hover:text-stone transition-colors duration-500"
+						>PHILOSOPHY</a
+					>
+					<a
+						href="#expertise"
+						class="hover:text-stone transition-colors duration-500"
+						>EXPERTISE</a
+					>
+					<a
+						href="#contact"
+						class="hover:text-stone transition-colors duration-500"
+						>INQUIRIES</a
+					>
+				</div>
+				<!-- Mobile Menu Icon (Simulated) -->
+				<div class="md:hidden text-xs uppercase tracking-widest">
+					Menu
+				</div>
+			</div>
+		</nav>
+
+		<!-- Hero Section -->
+		<header
+			class="relative h-screen flex items-center justify-center overflow-hidden"
+		>
+			<!-- Background Image: Abstract Architectural, Dark -->
+			<div class="absolute inset-0 z-0">
+				<!-- Using a high-end architectural abstract placeholder -->
+				<img
+					src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop"
+					alt="Abstract Architecture"
+					class="w-full h-full object-cover opacity-30 grayscale contrast-125"
+				/>
+				<div
+					class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-[#050505]"
+				></div>
+			</div>
+
+			<div class="relative z-10 text-center max-w-4xl px-6">
+				<p
+					class="text-xs md:text-sm tracking-[0.3em] uppercase text-stone mb-8 fade-up delay-100"
+				>
+					Private Risk Advisory
+				</p>
+				<h1
+					class="font-serif text-4xl md:text-6xl lg:text-7xl leading-tight text-white mb-10 fade-up delay-300"
+				>
+					Strict governance for <br />
+					<span class="italic text-stone-300">ultra-prime</span>
+					assets.
+				</h1>
+				<p
+					class="text-sm md:text-base font-light text-gray-400 max-w-xl mx-auto leading-relaxed fade-up delay-500"
+				>
+					We provide independent diagnostics, vendor oversight, and
+					security auditing for luxury residential boards and family
+					offices.
+				</p>
+
+				<div class="mt-16 fade-up delay-700">
+					<a
+						href="#contact"
+						class="group relative inline-flex items-center justify-center px-8 py-3 overflow-hidden transition-all duration-500 border border-white/20 hover:border-white/40"
+					>
+						<span
+							class="absolute w-0 h-0 transition-all duration-500 ease-out bg-white rounded-full group-hover:w-80 group-hover:h-56 opacity-5"
+						></span>
+						<span
+							class="relative text-xs tracking-widest uppercase group-hover:text-white transition-colors duration-300"
+							>Request Briefing</span
+						>
+					</a>
+				</div>
+			</div>
+
+			<!-- Scroll Indicator -->
+			<div
+				class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50 fade-up delay-1000"
+			>
+				<span class="text-[10px] uppercase tracking-widest"
+					>Scroll</span
+				>
+				<div
+					class="w-[1px] h-12 bg-gradient-to-b from-white to-transparent"
+				></div>
+			</div>
+		</header>
+
+		<!-- Section 1: The Problem (Philosophy) -->
+		<section
+			id="philosophy"
+			class="py-24 md:py-40 px-6 bg-[#050505] relative"
+		>
+			<div class="max-w-3xl mx-auto text-center fade-up">
+				<span
+					class="block text-[10px] uppercase tracking-[0.2em] text-stone mb-6"
+					>The Conflict of Interest</span
+				>
+				<h2
+					class="font-serif text-3xl md:text-4xl text-white leading-normal mb-10"
+				>
+					Most security providers sell <br /><span
+						class="italic text-stone-400"
+						>hours and hardware</span
+					>.<br />We sell truth.
+				</h2>
+				<div
+					class="space-y-6 text-stone-300 font-light leading-7 text-sm md:text-base"
+				>
+					<p>
+						When a vendor audits their own performance, the result
+						is always "satisfactory." We operate as the Owner’s
+						Representative—sitting on your side of the table to
+						audit protocols, test response times, and eliminate
+						wasteful spend.
+					</p>
+					<p>
+						We do not install cameras. We do not provide guards. We
+						ensure those who do are performing to the standard your
+						residents expect.
+					</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Section 2: Services (Grid) -->
+		<section
+			id="expertise"
+			class="py-24 px-6 border-t border-white/5 bg-[#080808]"
+		>
+			<div class="max-w-7xl mx-auto">
+				<div
+					class="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 border border-white/10"
+				>
+					<!-- Card 1 -->
+					<div
+						class="bg-[#080808] p-12 hover:bg-[#0a0a0a] transition-colors duration-700 group fade-up"
+					>
+						<span class="text-xs text-stone-500 block mb-6"
+							>01</span
+						>
+						<h3
+							class="font-serif text-xl text-white mb-4 group-hover:translate-x-1 transition-transform duration-500"
+						>
+							Exposure Diagnostics
+						</h3>
+						<p
+							class="text-sm text-gray-500 font-light leading-relaxed"
+						>
+							Simulated intrusion testing and vulnerability
+							assessments to determine real-world risk versus
+							perceived safety.
+						</p>
+					</div>
+
+					<!-- Card 2 -->
+					<div
+						class="bg-[#080808] p-12 hover:bg-[#0a0a0a] transition-colors duration-700 group fade-up delay-100"
+					>
+						<span class="text-xs text-stone-500 block mb-6"
+							>02</span
+						>
+						<h3
+							class="font-serif text-xl text-white mb-4 group-hover:translate-x-1 transition-transform duration-500"
+						>
+							Vendor Governance
+						</h3>
+						<p
+							class="text-sm text-gray-500 font-light leading-relaxed"
+						>
+							RFP management and contract auditing. We translate
+							technical security proposals into clear business
+							decisions for the Board.
+						</p>
+					</div>
+
+					<!-- Card 3 -->
+					<div
+						class="bg-[#080808] p-12 hover:bg-[#0a0a0a] transition-colors duration-700 group fade-up delay-200"
+					>
+						<span class="text-xs text-stone-500 block mb-6"
+							>03</span
+						>
+						<h3
+							class="font-serif text-xl text-white mb-4 group-hover:translate-x-1 transition-transform duration-500"
+						>
+							Performance Monitoring
+						</h3>
+						<p
+							class="text-sm text-gray-500 font-light leading-relaxed"
+						>
+							Ongoing "mystery shopper" style audits of door
+							staff, concierge, and patrol teams to ensure
+							consistent vigilance.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Section 3: Authority / Stats -->
+		<section
+			class="py-32 px-6 flex items-center justify-center bg-[#050505]"
+		>
+			<div
+				class="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-5xl mx-auto items-center"
+			>
+				<div class="fade-up">
+					<img
+						src="https://images.unsplash.com/photo-1465326117523-6450112b60b2?q=80&w=1000&auto=format&fit=crop"
+						alt="Detail"
+						class="grayscale opacity-60 contrast-125 border-l border-white/10 pl-6"
+					/>
+				</div>
+				<div class="fade-up delay-100">
+					<h4 class="font-serif text-2xl mb-6">
+						Discretion is our currency.
+					</h4>
+					<p class="text-sm text-stone-400 font-light leading-7 mb-8">
+						Our clients include Manhattan co-op boards, private
+						family offices, and developers of ultra-luxury
+						residential towers. We maintain a strict policy of
+						anonymity for all engagements.
+					</p>
+					<div class="flex gap-4">
+						<div class="pr-8 border-r border-white/10">
+							<span class="block text-2xl font-serif text-white"
+								>12M+</span
+							>
+							<span
+								class="text-[10px] uppercase tracking-widest text-stone-600"
+								>Sq Ft Managed</span
+							>
+						</div>
+						<div class="pl-4">
+							<span class="block text-2xl font-serif text-white"
+								>0</span
+							>
+							<span
+								class="text-[10px] uppercase tracking-widest text-stone-600"
+								>Incidents Post-Audit</span
+							>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Footer / Contact -->
+		<footer
+			id="contact"
+			class="bg-[#030303] pt-32 pb-12 px-6 border-t border-white/5"
+		>
+			<div class="max-w-4xl mx-auto text-center">
+				<h2
+					class="font-serif text-3xl md:text-5xl text-white mb-8 fade-up"
+				>
+					Initiate Contact
+				</h2>
+				<p class="text-stone-500 font-light mb-12 fade-up delay-100">
+					Inquiries are processed via secure server. <br />
+					Please expect a response within 12 hours.
+				</p>
+
+				<form class="max-w-md mx-auto space-y-8 fade-up delay-200">
+					<div class="relative group">
+						<input
+							type="text"
+							id="name"
+							required
+							class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b border-gray-700 appearance-none focus:outline-none focus:ring-0 focus:border-stone-400 peer"
+						/>
+						<label
+							for="name"
+							class="peer-focus:font-medium absolute text-xs text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-stone-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 uppercase tracking-widest"
+							>Name / Organization</label
+						>
+					</div>
+					<div class="relative group">
+						<input
+							type="email"
+							id="email"
+							required
+							class="block py-2.5 px-0 w-full text-sm text-white bg-transparent border-0 border-b border-gray-700 appearance-none focus:outline-none focus:ring-0 focus:border-stone-400 peer"
+						/>
+						<label
+							for="email"
+							class="peer-focus:font-medium absolute text-xs text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-stone-400 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6 uppercase tracking-widest"
+							>Official Email</label
+						>
+					</div>
+					<div class="relative group pt-4">
+						<button
+							type="submit"
+							class="text-xs uppercase tracking-[0.2em] text-white hover:text-stone-400 transition-colors duration-500 pb-1 border-b border-transparent hover:border-stone-400"
+						>
+							Submit Inquiry
+						</button>
+					</div>
+				</form>
+
+				<div
+					class="mt-32 flex flex-col md:flex-row justify-between items-center text-[10px] text-stone-700 uppercase tracking-widest fade-up delay-300"
+				>
+					<div>&copy; 2024 Vantage Governance.</div>
+					<div class="mt-4 md:mt-0 space-x-6">
+						<a
+							href="#"
+							class="hover:text-stone-500 transition-colors"
+							>Legal</a
+						>
+						<a
+							href="#"
+							class="hover:text-stone-500 transition-colors"
+							>Privacy</a
+						>
+						<a
+							href="#"
+							class="hover:text-stone-500 transition-colors"
+							>Client Portal</a
+						>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<script>
+			// Simple Intersection Observer for Fade Up Animations
+			const observerOptions = {
+				root: null,
+				rootMargin: "0px",
+				threshold: 0.1,
+			};
+
+			const observer = new IntersectionObserver((entries, observer) => {
+				entries.forEach((entry) => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add("visible");
+						observer.unobserve(entry.target); // Only animate once
+					}
+				});
+			}, observerOptions);
+
+			document.querySelectorAll(".fade-up").forEach((el) => {
+				observer.observe(el);
+			});
+		</script>
+	</body>
+</html>
